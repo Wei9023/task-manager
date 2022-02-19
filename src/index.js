@@ -31,14 +31,14 @@ app.listen(port, () => {
 })
 
 
-const jwt = require('jsonwebtoken');
-const { nextTick } = require('process');
-const myFunction = async () => {
-    const token = jwt.sign({ _id: 'abc123'} , 'thisisynewcourse', { expiresIn: '7 days'})
-    console.log(token)
+// const jwt = require('jsonwebtoken');
+// const { nextTick } = require('process');
+// const myFunction = async () => {
+//     const token = jwt.sign({ _id: 'abc123'} , 'thisisynewcourse', { expiresIn: '7 days'})
+//     console.log(token)
 
-    const data = jwt.verify(token, 'thisisynewcourse')
-    console.log(data)
-}
+//     const data = jwt.verify(token, 'thisisynewcourse')
+//     console.log(data)
+// }
 
-myFunction()
+// myFunction()
