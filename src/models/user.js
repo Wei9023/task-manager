@@ -83,6 +83,16 @@ userSchema.statics.findByCredentials = async (email, password) => {
     return user
 }
 
+userSchema.methods.toJSON = function() {
+    const user = this
+    const userObject = user.toObject()
+
+    delete userObject.password
+    delete userObject.tokens
+
+    return userObject;
+}
+
 userSchema.methods.generateAuthToken = async function(){
     const user = this
     const token = jwt.sign({ _id: user._id.toString()}, 'thisismynewcourse')
@@ -101,8 +111,9 @@ userSchema.pre('save', async function (next){
     next()
 })
 
-userSchema.pre('remove', async function(next){
-    const user = this
+
+userSchema.pre('remove', async function (next){
+    const user = this;
     await Task.deleteMany({ owner : user._id})
     next()
 })
