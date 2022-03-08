@@ -87,7 +87,10 @@ const upload = multer({
     }
 })
 
-router.post('/users/me/avatar', upload.single('avatar'), (req, res) => {
+router.post('/users/me/avatar', auth, upload.single('avatar'), async (req, res) => {
+    req.user.avatar = Buffer.from(JSON.stringify(req.file));
+    await req.user.save()
+    //console.log(req.user.avatar)
     res.status(200).send('Avatar uploaded')
 }, (error, req, res, next) => {
     res.status(400).send({ error: error.message})
