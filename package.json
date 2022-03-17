@@ -5,7 +5,11 @@
   "main": "mongodb.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
+    "test": "env-cmd -f ./config/test.env jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
@@ -19,6 +23,7 @@
   },
   "homepage": "https://github.com/Wei9023/task-manager#readme",
   "dependencies": {
+    "@sendgrid/mail": "^7.6.2",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
@@ -29,6 +34,9 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "env-cmd": "^10.1.0",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }

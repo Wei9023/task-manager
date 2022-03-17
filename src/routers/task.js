@@ -2,7 +2,6 @@ const express = require('express')
 const Task = require('../models/task')
 const auth = require('../middleware/auth')
 const router = new express.Router()
-const auth = require('../middleware/auth')
 const { match } = require('assert')
 
 router.post('/tasks', auth, async (req, res) => {
