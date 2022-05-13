@@ -18,6 +18,7 @@ by adding, updating, reading and deleting in this application.
 * JWT_SECRET=thisismynewcourse
 
 ## Components
+```
 ├── README.md
 ├── package.json
 ├── config
@@ -44,7 +45,7 @@ by adding, updating, reading and deleting in this application.
 │   └── app.js
 └── tests 
     └── user.test.js
-
+```
 
 
 
